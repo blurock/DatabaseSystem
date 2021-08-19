@@ -11,6 +11,8 @@ export class PersonaldescriptionComponent implements OnInit {
   constructor() { }
 
   @Input() person: Observable<any>;
+  roleclass = 'dataset:UserClassification';
+  roletitle = 'Role of Person';
 
   ngOnInit(): void {
   }

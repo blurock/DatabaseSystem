@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class NameofpersonComponent implements OnInit {
 
-    usertitleclass = 'dataset:UserTitleClass';
+    usertitleclass = 'dataset:UserTitle';
     classtitle = 'Title: ';
 
 	constructor() { }
@@ -16,7 +16,6 @@ export class NameofpersonComponent implements OnInit {
 	@Input() name: Observable<any>;
 
 	ngOnInit(): void {
-        this.classtitle 
 	}
 
 }

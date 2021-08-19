@@ -1,8 +1,8 @@
 <mat-form-field appearance="fill">
   <mat-label>{{classtitle}}</mat-label>
-  <mat-select [(value)]="selected">
-      <mat-option *ngFor="let choice of classifications" [value]="choice.classname">
-        {{choice.label}}
+  <mat-select [(ngModel)]="selected" (selectionChange)="onSelectValueChange()">
+      <mat-option *ngFor="let choice of classifications" [value]="choice['dc:type']" >
+          {{choice['rdfs:label']}}
       </mat-option>
   </mat-select>
 </mat-form-field>

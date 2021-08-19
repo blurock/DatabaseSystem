@@ -1,7 +1,8 @@
 <div class="example-form">
 <app-nameofperson [(name)]="person['foaf:name']"></app-nameofperson>
-				<mat-form-field class="example-full-width" appearance="fill">
-					<mat-label>Role</mat-label>
-					<input matInput [(ngModel)]="person['vcard:role']">
-				</mat-form-field>
+<app-classificationcomponent 
+		[classificationname]="roleclass"
+		[(selected)]="person['vcard:role']"
+		[classtitle]="roletitle">
+</app-classificationcomponent>
 </div>

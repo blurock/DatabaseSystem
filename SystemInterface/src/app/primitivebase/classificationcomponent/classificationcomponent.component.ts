@@ -1,9 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {OntologycataloginformationService} from 'src/app/services/ontologycataloginformation.service';
 
-interface classification {
-    classname: string;
-    label: string;
-}
 
 @Component({
   selector: 'app-classificationcomponent',
@@ -11,39 +8,35 @@ interface classification {
   styleUrls: ['./classificationcomponent.component.css']
 })
 export class ClassificationcomponentComponent    implements OnInit {
-  
-	@Input() selected: string;
+
+    @Input() selected: string;
     @Input() classificationname: string;
     @Input() classtitle: string;
-	
-	classifications: classification[];
-  constructor() {
-}
+    @Output() selectedChange = new EventEmitter<string>();
 
-
+    classifications: any;
+    constructor(private ontologyservice: OntologycataloginformationService) {
+        }
 
    ngOnInit(): void {
-       this.classifications = this.getClassifications();
-/*
-	   this.classifications = [
-       {classname: 'Doctor', label: 'Dr.'},
-       {classname: 'Miss', label: 'Miss'},
-       {classname: 'Mister', label: 'Mr.'},
-       {classname: 'Ms', label: 'Ms.'},
-       {classname: 'Eur_Ing', label: 'Eur Ing'}
-     ];
-*/
-}
+       this.getClassifications();
+ }
 
- getClassifications(): classification[] {
-     const choices = [
-       {classname: 'Doctor', label: 'Dr.'},
-       {classname: 'Miss', label: 'Miss'},
-       {classname: 'Mister', label: 'Mr.'},
-       {classname: 'Ms', label: 'Ms.'},
-       {classname: 'Eur_Ing', label: 'Eur Ing'}
-     ];
-     return choices;
-}
+   getClassifications(): void {
+     this.ontologyservice.getSimpleClassifications(this.classificationname)
+       .subscribe({next: response => {
+           const catobj: any = response['dataset:simpcatobj'];
+           this.classifications = catobj['dataset:classificationelement'];
+           if (this.selected.startsWith('Unassigned')) {
+             const choice = this.classifications[0];
+             alert(this.selected);
+             this.selected = choice['dc:type'];
+             this.selectedChange.emit(this.selected);
+           }}});
+      }
+
+   onSelectValueChange(): void {
+        this.selectedChange.emit(this.selected);
+      }
 
 }
