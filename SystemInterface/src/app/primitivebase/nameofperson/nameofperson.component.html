@@ -1,0 +1,28 @@
+<div>
+	<table  cellspacing="0">
+		<tr>
+			<td>
+			<app-classificationcomponent 
+			       [classificationname]="usertitleclass"
+					[(selected)]="name['foaf:title']"
+					[classtitle]="classtitle"></app-classificationcomponent>
+				<!--mat-form-field appearance="fill">
+					<mat-label>User Title</mat-label>
+					<input matInput [(ngModel)]="name['foaf:title']">
+				</mat-form-field -->
+			</td>
+			<td>
+				<mat-form-field  appearance="fill">
+					<mat-label>First name</mat-label>
+					<input matInput [(ngModel)]="name['foaf:givenName']">
+				</mat-form-field>
+			</td>
+			<td>
+				<mat-form-field class="example-full-width" appearance="fill">
+					<mat-label>Last Name</mat-label>
+					<input matInput [(ngModel)]="name['foaf:familyName']">
+				</mat-form-field>
+			</td>
+		</tr>
+	</table>
+</div>

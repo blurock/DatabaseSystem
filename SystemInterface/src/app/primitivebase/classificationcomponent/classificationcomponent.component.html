@@ -1,0 +1,9 @@
+<mat-form-field appearance="fill">
+  <mat-label>{{classtitle}}</mat-label>
+  <mat-select [(value)]="selected">
+      <mat-option *ngFor="let choice of classifications" [value]="choice.classname">
+        {{choice.label}}
+      </mat-option>
+  </mat-select>
+</mat-form-field>
+
