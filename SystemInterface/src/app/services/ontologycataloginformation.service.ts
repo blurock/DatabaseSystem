@@ -36,4 +36,27 @@ export class OntologycataloginformationService {
       };
       return this.base.standardHttpPost(body);
    }
+   fillCatalogObject(classname: string, activityinfo: any): Observable<any>  {
+     const body = {
+          service: 'DatasetFillEmptyWithSourceInformation',
+          'dataset:objectype': classname,
+          'dataset:activityinfo': activityinfo
+      };
+     return this.base.standardHttpPost(body);
+}
+    computeFirestoreCatalogID(catalogobj: any): Observable<any>  {
+      const body: any = {
+            service: 'DatasetCollectionDocumentIDPairForHierarchy',
+            'dataset:simpcatobj': catalogobj
+            };
+      return this.base.standardHttpPost(body);
+     }
+   writeFirestoreCatalogObject(catalogobj: any, firestoreid: any): Observable<any>  {
+      const body: any = {
+            service: 'FirestoreServiceWriteCatalogObject',
+            'dataset:simpcatobj': catalogobj,
+			'dataset:firestorecatalog': firestoreid
+            };
+      return this.base.standardHttpPost(body);
+     }
 }

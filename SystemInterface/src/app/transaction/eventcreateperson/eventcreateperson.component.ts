@@ -33,5 +33,30 @@ export class EventcreatepersonComponent implements OnInit {
 
     onTrigger(): void {
         alert(JSON.stringify(this.persondescription));
+       const classname = 'dataset:DatabasePerson';
+		alert(classname);
+       this.ontologyservice
+               .fillCatalogObject(classname,this.persondescription)
+                .subscribe({next: response => {
+                       const personinfo = response['dataset:simpcatobj'];
+                        this.firestoreCatalogID(personinfo);
+                        }
+                 });
+               
      }
+	firestoreCatalogID(personinfo: any) {
+		this.ontologyservice.computeFirestoreCatalogID(personinfo)
+							.subscribe({next: response => {
+								this.firestoreWrite(personinfo,response['dataset:simpcatobj']);
+								}});
+	}
+	firestoreWrite(personalinfo: any, firestoreid: any) {
+        alert(personalinfo);
+        alert(firestoreid);
+        this.ontologyservice.writeFirestoreCatalogObject(personalinfo, firestoreid)
+							.subscribe({next: response => {
+								alert(JSON.stringify(response));
+								}});
+		
+	}
 }
