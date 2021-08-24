@@ -1,21 +1,21 @@
 <div>
-	<table  cellspacing="0">
+	<table  cellspacing="0" class="full-width">
 		<tr>
-			<td>
-			<app-classificationcomponent 
+			<td class="short">
+			<app-classificationcomponent
 			       [classificationname]="usertitleclass"
 					[(selected)]="name['foaf:title']"
 					[classtitle]="classtitle">
 			</app-classificationcomponent>
 			</td>
 			<td>
-				<mat-form-field  appearance="fill">
+				<mat-form-field  appearance="fill"  class="full-width">
 					<mat-label>First name</mat-label>
 					<input matInput [(ngModel)]="name['foaf:givenName']">
 				</mat-form-field>
 			</td>
 			<td>
-				<mat-form-field class="example-full-width" appearance="fill">
+				<mat-form-field class="full-width" appearance="fill">
 					<mat-label>Last Name</mat-label>
 					<input matInput [(ngModel)]="name['foaf:familyName']">
 				</mat-form-field>

@@ -59,4 +59,17 @@ export class OntologycataloginformationService {
             };
       return this.base.standardHttpPost(body);
      }
+
+
+   writeStandardDatabasePerson(databaseperson: any): Observable<any> {
+	this.computeFirestoreCatalogID(databaseperson)
+		.subscribe({next: response => {
+			const firestoreid = response['dataset:simpcatobj'];
+			return this.writeFirestoreCatalogObject(databaseperson, firestoreid);
+			}
+			});
+	
+	return null;
+}
+
 }

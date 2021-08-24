@@ -29,7 +29,6 @@ export class ClassificationcomponentComponent    implements OnInit {
            this.classifications = catobj['dataset:classificationelement'];
            if (this.selected.startsWith('Unassigned')) {
              const choice = this.classifications[0];
-             alert(this.selected);
              this.selected = choice['dc:type'];
              this.selectedChange.emit(this.selected);
            }}});

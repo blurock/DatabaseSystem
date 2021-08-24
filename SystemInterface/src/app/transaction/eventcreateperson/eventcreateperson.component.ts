@@ -32,7 +32,6 @@ export class EventcreatepersonComponent implements OnInit {
 
 
     onTrigger(): void {
-        alert(JSON.stringify(this.persondescription));
        const classname = 'dataset:DatabasePerson';
 		alert(classname);
        this.ontologyservice

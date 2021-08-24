@@ -1,8 +1,8 @@
-<div class="example-form">
-<app-nameofperson [(name)]="person['foaf:name']"></app-nameofperson>
-<app-classificationcomponent 
+
+<app-nameofperson [(name)]="person['foaf:name']" class="full-width"></app-nameofperson>
+<app-classificationcomponent class="full-width"
 		[classificationname]="roleclass"
 		[(selected)]="person['vcard:role']"
 		[classtitle]="roletitle">
 </app-classificationcomponent>
-</div>
+

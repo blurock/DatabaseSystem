@@ -1,0 +1,20 @@
+<div>
+	<table  cellspacing="0" class="full-width">
+		<tr>
+			<td>
+			<app-classificationcomponent
+			       [classificationname]="purposeclass"
+					[(selected)]="purpose"
+					[classtitle]="purposetitle">
+			</app-classificationcomponent>
+			</td>
+			<td>
+			<app-classificationcomponent
+			       [classificationname]="conceptclass"
+					[(selected)]="concept"
+					[classtitle]="concepttitle">
+			</app-classificationcomponent>
+			</td>
+		</tr>
+	</table>
+</div>

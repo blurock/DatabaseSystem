@@ -11,7 +11,7 @@ export class NameofpersonComponent implements OnInit {
     usertitleclass = 'dataset:UserTitle';
     classtitle = 'Title: ';
 
-	constructor() { }
+    constructor() { }
 
 	@Input() name: Observable<any>;
 

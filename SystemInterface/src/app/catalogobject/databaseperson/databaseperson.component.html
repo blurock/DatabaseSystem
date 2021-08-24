@@ -1,0 +1,11 @@
+<mat-card class="example-form">
+		<mat-form-field class="full-width" appearance="fill">
+			<mat-label>Full name reference</mat-label>
+			<input matInput [(ngModel)]="databaseperson['dataset:title-person']">
+		</mat-form-field>
+<app-personaldescription [(person)]="databaseperson['foaf:Person']"></app-personaldescription>
+<app-contactlocationinformation [(contactLocation)]="databaseperson['vcard:Location']"></app-contactlocationinformation>
+<app-datadescriptionperson [(descriptionperson)]="databaseperson['dataset:descr-person']"
+     ></app-datadescriptionperson>
+
+</mat-card>

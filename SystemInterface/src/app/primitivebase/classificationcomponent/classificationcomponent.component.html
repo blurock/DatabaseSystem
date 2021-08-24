@@ -1,4 +1,4 @@
-<mat-form-field appearance="fill">
+<mat-form-field appearance="fill"  class="full-width">
   <mat-label>{{classtitle}}</mat-label>
   <mat-select [(ngModel)]="selected" (selectionChange)="onSelectValueChange()">
       <mat-option *ngFor="let choice of classifications" [value]="choice['dc:type']" >

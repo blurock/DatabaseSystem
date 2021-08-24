@@ -1,0 +1,30 @@
+ <mat-form-field class="full-width" appearance="fill">
+    <mat-label>{{titletitle}}</mat-label>
+    <input matInput placeholder="{{titleplace}}" [value]="title" (input)="updateTitle($event.target.value)">
+  </mat-form-field>
+ <mat-form-field class="full-width" appearance="fill">
+    <mat-label>{{abstracttitle}}</mat-label>
+    <textarea matInput placeholder="{{abstractplace}}" [value]="abstract" (input)="updateAbstract($event.target.value)"></textarea>
+  </mat-form-field>
+<div>
+	<table  cellspacing="0" class="full-width">
+		<tr>
+			<td>
+			<app-classificationcomponent
+			       [classificationname]="purposeclass"
+					[(selected)]="purpose"
+					[classtitle]="purposetitle"
+					(selectedChange) = "updatePurpose($event)">
+			</app-classificationcomponent>
+			</td>
+			<td>
+			<app-classificationcomponent
+			       [classificationname]="conceptclass"
+					[(selected)]="concept"
+					[classtitle]="concepttitle"
+					(selectedChange) = "updateConcept($event)">
+			</app-classificationcomponent>
+			</td>
+		</tr>
+	</table>
+</div>
